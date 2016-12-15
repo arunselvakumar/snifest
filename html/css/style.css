@@ -105,11 +105,12 @@ a {
 
 .item-stats .item-stats-value {
     font-size: 18px;
-    color: #444;
+    color: #184c93;
     font-weight: 500;
 }
 
 .item-stats .item-stats-name {
+    color: black;
     font-size: 12px;
     text-transform: uppercase;
     line-height: 1;
