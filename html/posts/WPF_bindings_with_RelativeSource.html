@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>Tag Page (#WPF)</title>
+
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+                <header class="header-question">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="name-wrapper-tag">
+                            <h1>How do I use WPF bindings with RelativeSource?</h1>
+                        </div>
+                        <p class="tag-description">
+                            I have a WPF application. It has a grid that is split into 4 rows. In the 2 row I have a datagrid that has its datacontext set to an object of OrderBlock. This all works fine. However I would like one of the column header text value of the datagrid be bound to a property in my view model.
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align: center">
+                                <button type="button" class="btn btn-default btn-circle btn-xl" style="margin-right:50px;">
+                                    <h2>1.2K</h2> <br>
+                                    <span style="font-size: 12px;"> Views </span>
+                                </button>
+
+                                <button type="button" class="btn btn-default btn-circle btn-xl">
+                                    <h2>3</h2> <br>
+                                    <span style="font-size: 12px;"> Responses </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    <div class="container" style="padding-top: 50px; font-size: 16px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
+        <div class="row" style="color:black">
+            <h3>Responses</h3>
+        </div>
+    </div>
+    <div class="container">
+        <article class="box-page">
+            <div class="entry animated bounceInUp">
+                <div class="row">
+                    <div class="col-md-2" style="text-align: center;">
+                        <div>
+                            <i class="fa fa-user-circle-o" style="font-size:60px; color:#184c93"></i> <br>
+                            Asim Habeeb <br>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="content">
+                            If you want to bind to another property on the object: <br >
+                            <code> {Binding Path=PathToProperty, RelativeSource={RelativeSource Self}} </code> <br > <br >
+                            If you want to get a property on an ancestor: <br >
+                            <code>{Binding Path=PathToProperty, RelativeSource={RelativeSource AncestorType={x:Type typeOfAncestor}}}</code> <br> <br >
+                            If you want to get a property on the templated parent (so you can do 2 way bindings in a ControlTemplate) <br>
+                            <code>{Binding Path=PathToProperty, RelativeSource={RelativeSource TemplatedParent}}</code> <br > <br >
+                            or, shorter (this only works for OneWay bindings): <br >
+                            <code>{TemplateBinding Path=PathToProperty}</code> <br >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="entry animated bounceInUp">
+                <div class="row">
+                    <div class="col-md-2" style="text-align: center;">
+                        <div>
+                            <i class="fa fa-user-circle-o" style="font-size:60px; color:#184c93"></i> <br>
+                            Yumunam Arunkumar <br>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="content">
+                            I didn't read every answer but I just want to add this information in case of relative source Command Binding of a button. When you use relative source with <code>Mode=FindAncestor </code> the binding must be like: <br > <br>
+                            <code>Command="{Binding Path=DataContext.CommandProperty, RelativeSource={...}}"</code> <br > <br >
+                            If you don't add DataContext in your path, at execution time he can't retrieve the property.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="entry animated bounceInUp">
+                <div class="row">
+                    <div class="col-md-2" style="text-align: center;">
+                        <div>
+                            <i class="fa fa-user-circle-o" style="font-size:60px; color:hotpink"></i> <br>
+                            Udhaya Bharathi <br>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="content">
+                            Here's a more visual explanation in the context of a MVVM architecture: <br >
+
+                            <img src="../assets/6Tcc6.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    </body>
+</html>
